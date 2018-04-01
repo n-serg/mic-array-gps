@@ -1,0 +1,21 @@
+#
+# @file /etc/systemd/system/run_mic_gps_button.service
+# @brief Service for mic-array-gps
+#
+
+[Unit]
+Description=mic-array-gps
+After=syslog.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/mic-array-gps
+ExecStart=/home/pi/mic-array-gps/run_mic_gps_button.py
+User=root
+Group=root
+Restart=always
+RestartSec=30
+TimeoutSec=30
+
+[Install]
+WantedBy=multi-user.target
